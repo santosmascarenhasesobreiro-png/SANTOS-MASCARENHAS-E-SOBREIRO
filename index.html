@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Página Inicial - SMS</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- LOGO EM VÍDEO NO TOPO -->
+  <section class="video-topo">
+    <video autoplay muted loop playsinline>
+      <source src="VIDEO LOGO.mp4" type="video/mp4" />
+      Seu navegador não suporta a reprodução de vídeo.
+    </video>
+  </section>
+<!-- SEÇÃO CONTATO COM IMAGENS INTERATIVAS E TEXTO AO CLICAR -->
+<section class="contato">
+    <h2>Atendimento</h2>
+    <ul>
+      <li class="contato-item">
+        <a href="maria.html" class="contato-link">
+          <img src="img/atendente1.jpg" class="secao-imagem" alt="Maria" />
+          <p class="contato-nome">Maria - Atendimento</p>
+          <p class="texto-expansivel">Especialista em causas cíveis e atendimento online.</p>
+        </a>
+      </li>
+      <li class="contato-item">
+        <a href="joao.html" class="contato-link">
+          <img src="img/atendente2.jpg" class="secao-imagem" alt="João" />
+          <p class="contato-nome">João - Consultas Jurídicas</p>
+          <p class="texto-expansivel">Responsável por consultoria inicial e triagem.</p>
+        </a>
+      </li>
+      <li class="contato-item">
+        <a href="whatsapp.html" class="contato-link">
+          <img src="img/whatsapp.png" class="secao-imagem" alt="WhatsApp" />
+          <p class="contato-nome">WhatsApp Direto</p>
+          <p class="texto-expansivel">Clique aqui e fale com nossa equipe em tempo real.</p>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- MENU DE IMAGENS INTERATIVO -->
+  <section class="menu-imagens">
+    <a href="pagina1.html"><img src="img/img1.jpg" alt="Imagem 1" /></a>
+    <a href="pagina2.html"><img src="img/img2.jpg" alt="Imagem 2" /></a>
+    <a href="pagina3.html"><img src="img/img3.jpg" alt="Imagem 3" /></a>
+    <a href="pagina4.html"><img src="img/img4.jpg" alt="Imagem 4" /></a>
+  </section>
+
+<!-- SEÇÃO NOSSOS SERVIÇOS -->
+<section id="nossos-servicos">
+    <h2>Nossos Serviços</h2>
+    <div class="servicos-quadro">
+  
+      <a href="seo.html" class="servico-item">
+        <img src="img/servico1.jpg" alt="Consultoria SEO" />
+        <div class="descricao">Consultoria SEO</div>
+      </a>
+  
+      <a href="marketing.html" class="servico-item">
+        <img src="img/servico2.jpg" alt="Marketing Digital" />
+        <div class="descricao">Marketing Digital</div>
+      </a>
+  
+      <a href="desenvolvimento.html" class="servico-item">
+        <img src="img/servico3.jpg" alt="Desenvolvimento Web" />
+        <div class="descricao">Desenvolvimento Web</div>
+      </a>
+  
+    </div>
+  </section>
+
+<!-- ... outras seções acima ... -->
+
+<!-- SEÇÃO FEED -->
+<section id="feed" class="feed">
+    <h2>Últimas Atualizações</h2>
+    <div class="carousel-container">
+      <button class="carousel-btn left">&#10094;</button>
+      <div class="carousel-track">
+        <!-- Os itens serão inseridos via JS aqui -->
+      </div>
+      <button class="carousel-btn right">&#10095;</button>
+    </div>
+  </section>
+  
+  </body>
+  </html>
+
+
+<!-- Botão para abrir o chatbot -->
+<button id="chatbot-toggle">💬</button>
+
+<!-- Chatbot flutuante -->
+<style>
+  #chatbot-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background: url('sms-logo.png') no-repeat center center;
+    background-size: cover;
+    position: relative;
+  }
+  #chatbot-messages::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.75);
+    pointer-events: none;
+    z-index: 0;
+  }
+  #chatbot-messages > * {
+    position: relative;
+    z-index: 1;
+  }
+</style>
+
+<div id="chatbot" style="display: none; flex-direction: column; position: fixed; bottom: 20px; right: 20px; width: 300px; max-height: 400px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); overflow: hidden; z-index: 9999;">
+  <div id="chatbot-header" style="background:#004080; color:white; padding: 12px 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+    Atendimento Online 
+    <span id="chatbot-close" style="cursor: pointer; font-size: 22px;">&times;</span>
+  </div>
+  <div id="chatbot-messages"></div>
+  <input type="text" id="chatbot-input" placeholder="Digite sua pergunta..." autocomplete="off" style="border:none; padding: 12px; width: 100%; box-sizing: border-box; border-top: 1px solid #ddd;" />
+</div>
+
+</body>
+</html>

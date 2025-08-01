@@ -1,0 +1,574 @@
+/* RESET BÁSICO */
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #5c1e1e; /* fundo neutro */
+    color: #222;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  
+  /* CONTAINER CENTRAL */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* VIDEO LOGO */
+  .video-topo {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    margin-bottom: 50px;
+    position: relative;
+  }
+  
+  .video-topo video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+  }
+  
+  /* SLOGAN SOBREPOSTO */
+  .video-topo::after {
+    content: "Bem-vindo ao SMS - Seu Suporte Jurídico Digital";
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  }
+  
+  /* MENU NAVEGAÇÃO */
+  header {
+    background-color: #131416;
+    padding: 18px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin-bottom: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+  
+  .menu a {
+    color: white;
+    text-decoration: none;
+    background: #0074d9;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 18px;
+    box-shadow: 0 4px 15px rgba(0,116,217,0.5);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .menu a:hover {
+    background-color: #005fa3;
+    transform: translateY(-3px);
+  }
+  
+  .menu a:active {
+    background-color: #f71691;
+    transform: scale(0.95);
+  }
+  
+  /* SEÇÃO CONTATO */
+  .contato {
+    background-color: #ffffff; /* fundo branco opaco */
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    padding: 50px 30px;
+    margin-bottom: 80px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .contato h2 {
+    font-size: 32px;
+    color: #004080;
+    margin-bottom: 40px;
+    font-weight: 700;
+  }
+  
+  .contato ul {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contato-item {
+    background: #f9faff;
+    border-radius: 50%;
+    width: 190px;
+    height: 190px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    cursor: pointer;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contato-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.3);
+  }
+  
+  .secao-imagem {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease;
+  }
+  
+  .contato-item:hover .secao-imagem {
+    transform: scale(1.1);
+  }
+  
+  .contato-nome {
+    font-weight: 700;
+    font-size: 18px;
+    color: #004080;
+    margin-bottom: 12px;
+  }
+  
+  /* Texto que aparece ao clicar (JS precisa ativar classe) */
+  .texto-expansivel {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    font-size: 14px;
+    color: #333;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    text-align: center;
+    padding: 0 10px;
+    line-height: 1.4;
+    pointer-events: none;
+    user-select: none;
+  }
+  
+  .contato-item.ativo .texto-expansivel {
+    max-height: 120px;
+    opacity: 1;
+    padding-top: 15px;
+    pointer-events: auto;
+    user-select: auto;
+  }
+  
+  /* MENU DE IMAGENS */
+  .menu-imagens {
+    max-width: 1000px;
+    margin: 0 auto 80px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+  }
+  
+  .menu-imagens a {
+    border-radius: 20px;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+    width: 240px;
+    height: 160px;
+  }
+  
+  .menu-imagens a:hover {
+    transform: scale(1.08);
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.3);
+  }
+  
+  .menu-imagens img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.3s ease;
+    border-radius: 20px;
+  }
+  
+  .menu-imagens a:hover img {
+    filter: brightness(1.1);
+  }
+  
+  /* NOSSOS SERVIÇOS */
+  #nossos-servicos {
+    max-width: 1000px;
+    margin: 0 auto 80px;
+    background: white;
+    padding: 50px 30px 60px;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+    text-align: center;
+  }
+  
+  #nossos-servicos h2 {
+    font-size: 32px;
+    color: #004080;
+    margin-bottom: 50px;
+    font-weight: 700;
+  }
+  
+  .servicos-quadro {
+    display: flex;
+    background: white;
+    justify-content: center;
+    gap: 70px;
+    flex-wrap: wrap;
+  }
+  
+  .servico-item {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background: #f9faff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .servico-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 55px rgba(0,0,0,0.25);
+  }
+  
+  .servico-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .servico-item:hover img {
+    transform: scale(1.12);
+  }
+  
+  .descricao {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 14px 10px;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .servico-item:hover .descricao {
+    opacity: 1;
+  }
+  
+  /* SEÇÃO FEED */
+  .feed {
+    max-width: 900px;
+    margin: 0 auto 80px;
+    background: white;
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+    text-align: center;
+    position: relative;
+  }
+  
+  .feed h2 {
+    font-size: 30px;
+    color: #004080;
+    margin-bottom: 40px;
+    font-weight: 700;
+  }
+  
+  /* Contêiner do carrossel */
+  .carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px; /* Espaço para os botões */
+    box-sizing: border-box;
+  }
+  
+  /* Faixa do carrossel */
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 20px;
+    will-change: transform;
+  }
+  
+  /* Itens do carrossel */
+  .carousel-item {
+    flex: 0 0 80%; /* ocupa 80% do container */
+    background-color: #f9faff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    font-size: 16px;
+    color: #333;
+    min-height: 140px;
+    text-align: center;
+    line-height: 1.6;
+    user-select: none;
+    scroll-snap-align: start;
+    margin: 0 auto;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Botões de navegação */
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #004080;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+    font-size: 26px;
+    border-radius: 50%;
+    z-index: 20;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    user-select: none;
+  }
+  
+  .carousel-btn:hover {
+    background-color: #0066cc;
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .carousel-btn.left {
+    left: 10px;
+  }
+  
+  .carousel-btn.right {
+    right: 10px;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .menu a {
+      padding: 10px 16px;
+      font-size: 16px;
+    }
+    .contato ul {
+      gap: 35px;
+    }
+    .contato-item {
+      width: 90vw;
+      max-width: 300px;
+      border-radius: 16px;
+      height: auto;
+      padding: 25px 20px;
+      flex-direction: row;
+      text-align: left;
+    }
+    .contato-item .secao-imagem {
+      width: 80px;
+      height: 80px;
+      margin-right: 20px;
+    }
+    .contato-nome {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .texto-expansivel {
+      max-height: none !important;
+      opacity: 1 !important;
+      padding-top: 0;
+    }
+    .menu-imagens a {
+      width: 90vw;
+      max-width: 300px;
+      height: 180px;
+    }
+    .servicos-quadro {
+      gap: 30px;
+    }
+    .servico-item {
+      width: 90vw;
+      max-width: 300px;
+      height: 180px;
+    }
+    .carousel-item {
+      flex: 0 0 90%;
+      min-height: 120px;
+      padding: 20px 25px;
+    }
+    .carousel-container {
+      padding: 0 20px;
+    }
+    .carousel-btn {
+      padding: 10px 14px;
+      font-size: 22px;
+    }
+  }
+  
+  /* CHATBOT */
+  #chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    max-height: 400px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 9999;
+  }
+  
+  #chatbot-header {
+    background: #004080;
+    color: white;
+    padding: 12px 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #chatbot-close {
+    cursor: pointer;
+    font-size: 22px;
+  }
+  
+  #chatbot-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 15px;
+    position: relative;
+    background: url('sms-logo.png') no-repeat center center;
+    background-size: contain;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  #chatbot-messages::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  #chatbot-messages > div {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+    max-width: 70%;
+    padding: 12px 16px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    display: inline-block;
+  }
+  
+  .message.user {
+    align-self: flex-end;
+    background-color: #004080;
+    color: white;
+    border-bottom-right-radius: 0;
+    text-align: right;
+  }
+  
+  .message.bot {
+    align-self: flex-start;
+    background-color: #e2e8f0;
+    color: #222;
+    border-bottom-left-radius: 0;
+    text-align: left;
+  }
+  
+  #chatbot-input {
+    border: none;
+    border-top: 1px solid #ddd;
+    padding: 12px 16px;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  #chatbot-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #004080;
+    border: none;
+    color: white;
+    font-size: 26px;
+    padding: 12px 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    z-index: 10000;
+  }
+  
+  #chatbot-toggle:hover {
+    background-color: #0066cc;
+  }
+  
+  /* FUNDO COM IMAGEM PARA O CONTEÚDO ABAIXO DO VÍDEO */
+  .conteudo-fundo {
+    background: url('sms-adv.png') no-repeat center center fixed;
+    background-size: cover;
+    padding: 30px 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    color: white;
+  }
